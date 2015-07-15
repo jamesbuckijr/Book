@@ -8,8 +8,8 @@ public class LearningToAdd {
         //declare new instance of random
         new java.util.Random();
         //declare and save variables
-        int first_number = (int)Math.random() * 10;
-        int second_number = (int)Math.random() * 10;
+        int first_number = (int)(Math.random() * 10);
+        int second_number = (int)(Math.random() * 10);
         
         String output_problem = "Please complete the following math problem:\n" + first_number + " + " + second_number + " = ____";
         
