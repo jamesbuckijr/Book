@@ -72,4 +72,12 @@ public class CustomMath {
         }
         return digit_sum;
     }
+    public static long digitSumLong(long number) {
+        long digit_sum = 0;
+        while (number != 0) {
+            digit_sum += (number % 10);
+            number /= 10;
+        }
+        return digit_sum;
+    }    
 }
