@@ -120,4 +120,17 @@ public class CustomMath {
         }
         return sum;
     }
+    public static double sum(double[] array) {
+        double sum = 0;
+        for (int i = 0 ; i < array.length - 1; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+    public static int randOneZero() { 
+        //method that generates random number either 1 or 0
+        double random_number = Math.random();
+        int rand_int = (random_number >= .50) ? 1 : 0;
+        return rand_int;
+    }    
 }
