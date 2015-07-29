@@ -1,17 +1,22 @@
 import java.util.Scanner;//numberOfBalls
 import java.lang.Math;
 
+
+//RANDOM SLOTS HAVE NO BALLS 
+//WHEN MORE THAN TEN SLOTS HISTOGRAM IS OFF
+
 public class BeanMachineBasic{
     public static void main(String[] args) {
         tests();
     }
     public static void tests() {
-        randOneZero();
-        numberOfBalls();
-        System.out.println(ballPath(5));
+        //randOneZero();
+        //numberOfBalls();
+        //System.out.println(ballPath(5));
         //TEST
         
-        beanMachineRun();
+        //int[] test_array = beanMachineRun();
+        returnHistogram();
     }    
     public static int randOneZero() { //GENERATE RANDOM LEFT OR RIGHT
         //method that generates random number either 1 or 0
@@ -21,7 +26,6 @@ public class BeanMachineBasic{
     }    
     public static int ballPath(int number_of_slots) {//GENERATE PATH OF INDIVIDUAL BALL
         //eight total columns at the end; generate seven choices
-        System.out.print("\n");
         int peg_rows = number_of_slots - 1;
         int peg_rows_left = peg_rows;
         int ball_position = number_of_slots / 2;
@@ -39,6 +43,7 @@ public class BeanMachineBasic{
             char direction = (random == 1) ? 'R' : 'L';
             System.out.print(direction);
         }
+        System.out.print("\n");
         return ball_position;
     }
     public static int numberOfBalls() {//GENERATE REQUESTED NUMBER OF BALLS
@@ -75,13 +80,22 @@ public class BeanMachineBasic{
         }
         return largest_value;
     }
-    public static void returnHistogram(int[] counts) {//GENERATE AND RETURN HISTOGRAM
+    public static void returnHistogram() {//GENERATE AND RETURN HISTOGRAM
         int[] machine_run = beanMachineRun();
         int[][] histogram = new int[largestArrayValue(machine_run)][];
         for (int i = largestArrayValue(machine_run) ; i > 0 ;i--) {
+            System.out.print("\n");
             for (int j = 0 ; j < machine_run.length ;j++) {
-                System.out.print(   );
+                if (machine_run[j] < i)
+                    System.out.print(" ");
+                if (machine_run[j] >= i)
+                    System.out.print("O");
             }
         }
+        System.out.print("\n");
+        for (int i = 1 ; i <= machine_run.length ; i++) {
+            System.out.print(i);
+        }
+        System.out.print("\n");
     }
 }
