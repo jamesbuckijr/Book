@@ -23,8 +23,6 @@ public class CustomMath {
                     return false;      
         }
         return true;
-    
-    
 }
     public static int reverseInt(int regular_number) {
         //returns the reverse of an int
@@ -132,5 +130,5 @@ public class CustomMath {
         double random_number = Math.random();
         int rand_int = (random_number >= .50) ? 1 : 0;
         return rand_int;
-    }    
+    } 
 }
