@@ -1,8 +1,6 @@
 import java.util.Scanner;//numberOfBalls
 import java.lang.Math;
 
-
-//RANDOM SLOTS HAVE NO BALLS 
 //WHEN MORE THAN TEN SLOTS HISTOGRAM IS OFF
 
 public class BeanMachineBasic{
@@ -28,23 +26,19 @@ public class BeanMachineBasic{
         //eight total columns at the end; generate seven choices
         int peg_rows = number_of_slots - 1;
         int peg_rows_left = peg_rows;
-        int ball_position = number_of_slots / 2;
+        //OLD int ball_position = number_of_slots / 2;
+        int ending_slot_from_left = 0;
         while (peg_rows_left != 0) {
             int random = randOneZero();
             if (random == 1)
-                ball_position += 1;
-            if (random == 0)
-                ball_position -= 1;
-            if (ball_position >= peg_rows)
-                ball_position = peg_rows;
-            if (ball_position <= 0)
-                ball_position = 0;
+                ending_slot_from_left++;
             peg_rows_left--;
             char direction = (random == 1) ? 'R' : 'L';
             System.out.print(direction);
         }
         System.out.print("\n");
-        return ball_position;
+        return ending_slot_from_left;
+        //OLD return ball_position;
     }
     public static int numberOfBalls() {//GENERATE REQUESTED NUMBER OF BALLS
         Scanner input = new Scanner(System.in);
