@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class SudokuSolver {
     
-    //COMPLETE FOR LOOPS IN SOLVER METHOD
+    //FIX SOLVER METHOD
+        //HOW THE APP CYCLES THROUGH THE EMPTY SPACES
     /** Takes input row by row for a sudoku puzzle and returns the solution in the form of an array  */
     public static void main(String[] args) {
         tests();
@@ -70,7 +71,19 @@ public class SudokuSolver {
     }
     public static /*int[][]*/void solver(int[][] board) {
         boolean[][] free_spaces = findFreeSpaces(board);
-        
+        int current_row = 0;
+        int current_column = 0;
+        int test_value = 1;
+        while (current < 82) {
+            if (free_spaces[current_row][current_column] == true) {
+                while (isValid(free_spaces, board , current_row , current_column , test_value ) != true) {                    
+                    if (test_value > 9) {
+                        test_value = 1;
+                    }
+                }
+                board[current_row][current_column] = test_value;
+            }
+        }
             
     }
     public static boolean isValid(boolean[][] empty_spaces , int[][] board , int row, int column, int test_value) {
