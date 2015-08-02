@@ -4,6 +4,7 @@ public class SudokuSolver {
     
     //FIX SOLVER METHOD
         //HOW THE APP CYCLES THROUGH THE EMPTY SPACES
+        //RETURN LIST OF EMPTY SPACES INSTEAD
     /** Takes input row by row for a sudoku puzzle and returns the solution in the form of an array  */
     public static void main(String[] args) {
         tests();
@@ -58,6 +59,9 @@ public class SudokuSolver {
         return board;
     }
     public static boolean[][] findFreeSpaces(int[][] board) {
+        
+        
+        
         //FIND FREE SPACES IN GIVEN ARRAY; RETURNS ARRAY OF BOOLEANS FOR THIER CORRESPONDING VALUES
         boolean[][] free_spaces = new boolean[9][9];
         for(int i = 0 ; i < 9 ; i++) {
@@ -155,7 +159,4 @@ public class SudokuSolver {
             System.out.print("\n");
         }
     }       
-    //public static void printBoard(int[][] board){
-        //PRINT THE FOUND ARRAY IF ALL NUMBERS ARE TRUE    
-    //}
 }
