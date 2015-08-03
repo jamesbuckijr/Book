@@ -1,10 +1,8 @@
 import java.util.Scanner;
 
 public class SudokuSolver {
-    
     //FIX SOLVER METHOD
         //HOW THE APP CYCLES THROUGH THE EMPTY SPACES
-        //RETURN LIST OF EMPTY SPACES INSTEAD
     /** Takes input row by row for a sudoku puzzle and returns the solution in the form of an array  */
     public static void main(String[] args) {
         tests();
@@ -58,46 +56,38 @@ public class SudokuSolver {
         }
         return board;
     }
-    public static boolean[][] findFreeSpaces(int[][] board) {
-        
-        
-        
-        //FIND FREE SPACES IN GIVEN ARRAY; RETURNS ARRAY OF BOOLEANS FOR THIER CORRESPONDING VALUES
-        boolean[][] free_spaces = new boolean[9][9];
+    public static int[][] findFreeSpaces(int[][] board) {
+        //return coordinates of free spaces in board
+        //FIND FREE SPACES IN GIVEN ARRAY
+        int count = 0;
+        for(int i = 0 ; i < 9 ; i++){for(int j = 0 ; j < 9 ; j++){if(board[i][j] == 0){count++;}}}
+        int[][] free_spaces = new int[count][2];
+        int location = 0;
         for(int i = 0 ; i < 9 ; i++) {
             for(int j = 0 ; j < 9 ; j++) {
                 if(board[i][j] == 0) {
-                    free_spaces[i][j] = true;
+                    free_spaces[location][0] = i;
+                    free_spaces[location][1] = j;
                 }
             }
         }
         return free_spaces;
     }
     public static /*int[][]*/void solver(int[][] board) {
-        boolean[][] free_spaces = findFreeSpaces(board);
-        int current_row = 0;
-        int current_column = 0;
-        int test_value = 1;
-        while (current < 82) {
-            if (free_spaces[current_row][current_column] == true) {
-                while (isValid(free_spaces, board , current_row , current_column , test_value ) != true) {                    
-                    if (test_value > 9) {
-                        test_value = 1;
-                    }
-                }
-                board[current_row][current_column] = test_value;
-            }
-        }
+        //NEW
+        int[][] free_spaces = findFreeSpaces(board);
+        int current_free_space = 0;
+        boolean valid_guess = isValid(board, free_spaces[current_free_space][0] , free_spaces[current_free_space][1] , test_value );
+        test_value = 1;
+        
             
     }
-    public static boolean isValid(boolean[][] empty_spaces , int[][] board , int row, int column, int test_value) {
+    public static boolean isValid(int[][] board , int row, int column, int test_value) {
         //CHECK IF EACH NUMBER IN LOCATION FOLLOWS RULES
-        if (empty_spaces[row][column] == true) {//CHECKS IF AN EMPTY SPACE    
-            if(checkRows(board, row , test_value) == true)//CHECKS ROW
-                if(checkColumns(board, column, test_value) == true)//CHECKS COLUMNS
-                    if(checkSquares(board , row , column , test_value) == true)//CHECKS SQUARES
-                        return true;
-        }
+        if(checkRows(board, row , test_value) == true)//CHECKS ROW
+            if(checkColumns(board, column, test_value) == true)//CHECKS COLUMNS
+                if(checkSquares(board , row , column , test_value) == true)//CHECKS SQUARES
+                    return true;
         return false; 
     }
     public static boolean checkRows(int[][] board, int row, int test_number) {
