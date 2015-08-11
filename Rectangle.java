@@ -1,11 +1,21 @@
 public class Rectangle {
     public static void main(String[] args) {
-        
+        System.out.println("TEST START");
+        Rectangle rectangle1 = new Rectangle();
+        Rectangle rectangle2 = new Rectangle(2.5, 3.5, "Red");
+        System.out.println(rectangle1.getHeight());
+        System.out.println(rectangle1.getArea());
+        System.out.println(rectangle1.getColor());
+        System.out.println(rectangle2.getHeight());
+        System.out.println(rectangle2.getArea());
+        System.out.println(rectangle2.getPerimeter());
+        System.out.println(rectangle2.getColor());
+        System.out.println("TEST END");
     }
     
     private double width = 1;
     private double height = 1;
-    private String color = "white";
+    private static String color = "white";
     public double getWidth() {
         return width;
     }
@@ -31,6 +41,10 @@ public class Rectangle {
         setWidth(userHeight);
         setColor(userColor);
     }
-    public double getArea() {}
-    public double getPerometer() {}
+    public double getArea() {
+        return (width * height);
+    }
+    public double getPerimeter() {
+        return ((height * 2) + (width * 2));
+    }
 }
