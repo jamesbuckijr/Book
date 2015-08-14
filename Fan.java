@@ -1,5 +1,15 @@
 public class Fan {
     
+    public static void main( String[] args) {
+        System.out.println("BEGIN TEST");
+        Fan fan1 = new Fan(2,5,"Red");
+        System.out.println(fan1.toString());
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("END TEST");
+    }
+    
     //FAN SPEEDS CONSTANTS
     final static int SLOW = 1;
     final static int MEDIUM = 2;
@@ -48,7 +58,8 @@ public class Fan {
     
     public String toString() {
         if (on == true) {
-            String output = "The " + color + " is " + on + ", speed:" + speed + " radius:" + radius + ".";
+            String isit = (on == true) ? "on" : "off" ; 
+            String output = "The " + color + " fan is " + isit + ", speed:" + speed + " radius:" + radius + ".";
             return output;
         }
         else {
